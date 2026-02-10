@@ -1,0 +1,29 @@
+name: PR Quality Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ci-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: PASS case - create logs
+        run: |
+          mkdir -p logs
+          echo "CI test log" > logs/app.log
+
+      - name: Run backup (PASS)
+        run: |
+          chmod +x scripts/backup_log.sh
+          ./scripts/backup_log.sh
+
+      - name: FAIL case - remove logs
+        run: |
+          rm -rf logs
+          ./scripts/backup_log.sh
