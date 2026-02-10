@@ -14,3 +14,4 @@ In this project:
 - script exits with error
 
 Create a PR to see CI in action.
+force fail
