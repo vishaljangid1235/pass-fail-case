@@ -15,3 +15,4 @@ In this project:
 
 Create a PR to see CI in action.
 force fail
+trigger ci
